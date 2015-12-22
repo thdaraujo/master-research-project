@@ -6,6 +6,6 @@ describe Lattes do
   end
 
   it 'does something useful' do
-    expect(false).to eq(true)
+    expect(Lattes::Url).to eq('http://howistart.org/posts/ruby/1')
   end
 end

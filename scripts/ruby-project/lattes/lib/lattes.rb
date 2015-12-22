@@ -1,5 +1,9 @@
 require "lattes/version"
 
 module Lattes
-  # Your code goes here...
+  def self.Url
+    "http://howistart.org/posts/ruby/1"
+  end
+
+  Url = "http://howistart.org/posts/ruby/1"
 end
