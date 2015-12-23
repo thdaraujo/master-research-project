@@ -2,4 +2,7 @@
 
 require 'lattes'
 
-puts Lattes::Url
+puts Lattes::hello
+
+path = ARGV[0]
+Lattes::parse_xml(path)

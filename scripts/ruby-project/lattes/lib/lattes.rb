@@ -1,9 +1,20 @@
 require "lattes/version"
+require "nokogiri"
 
 module Lattes
-  def self.Url
-    "http://howistart.org/posts/ruby/1"
+  def self.hello
+    "Lattes is now doing some stuff."
   end
 
-  Url = "http://howistart.org/posts/ruby/1"
+  def parse_xml(path)
+    puts "parsing file: #{path}"
+
+    f = File.open("../../../cvs/curriculo.xml")
+    doc = Nokogiri::XML(f)
+
+    p doc.xpath("//CURRICULO-VITAE")
+    p doc.xpath("//CURRICULO-VITAE ").children.map{|n| n.name }
+
+  end
+
 end
