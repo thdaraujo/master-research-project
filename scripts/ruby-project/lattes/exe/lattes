@@ -5,4 +5,5 @@ require 'lattes'
 puts Lattes::hello
 
 path = ARGV[0]
-Lattes::parse_xml(path)
+cv = Lattes::parse_xml(path)
+puts cv

@@ -6,6 +6,12 @@ describe Lattes do
   end
 
   it 'does something useful' do
-    expect(Lattes::Url).to eq('http://howistart.org/posts/ruby/1')
+    expect(Lattes::hello).to eq('Lattes is now doing some stuff.')
   end
+
+  it 'parses some xml' do
+    expect(Lattes::parse_xml("../../../cvs/curriculo.xml")).to eq(["DADOS-GERAIS", "PRODUCAO-BIBLIOGRAFICA", "PRODUCAO-TECNICA", "OUTRA-PRODUCAO", "DADOS-COMPLEMENTARES"])
+  end
+
+
 end

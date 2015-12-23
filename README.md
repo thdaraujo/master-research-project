@@ -9,4 +9,6 @@ Run with `$ ./unzipper.rb`
 
 Build gem with `$ rake install`
 
-Run gem with `$ lattes`
+Run gem with `$ lattes path_to_xml`
+
+Example: `$ lattes ../../../cvs/curriculo.xml`

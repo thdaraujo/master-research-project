@@ -6,15 +6,13 @@ module Lattes
     "Lattes is now doing some stuff."
   end
 
-  def parse_xml(path)
+  def self.parse_xml(path)
     puts "parsing file: #{path}"
 
-    f = File.open("../../../cvs/curriculo.xml")
+    f = File.open(path)
     doc = Nokogiri::XML(f)
-
-    p doc.xpath("//CURRICULO-VITAE")
-    p doc.xpath("//CURRICULO-VITAE ").children.map{|n| n.name }
-
+    cv = doc.xpath("//CURRICULO-VITAE ").children.map{|n| n.name }
+    cv
   end
 
 end
