@@ -1,4 +1,4 @@
-## Publicações em revista
+- Publicações em revista
 ```
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
@@ -16,7 +16,7 @@ WHERE {
 }
 ```
 
-##Pessoa estudou na Europa
+- Pessoa estudou na Europa
 ```
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
@@ -32,3 +32,10 @@ WHERE {
   FILTER(?euro = self:Europa)
 }
 ```
+
+- Criar Regra SWRL
+1. Criar uma nova classe/propriedade/etc. (por exemplo: `Teste_SWRL`).
+2. Tab SparQL Query -> Rules -> Add Rule
+3. Adicionar nova regra (por exemplo: `Person(?subject) -> Teste_SWRL(?subject)`).
+4. Menu Reasoner -> Synchronize Reasoner
+5. A classe será populada de acordo com a regra SWRL.
