@@ -6,7 +6,9 @@
     <!ENTITY foaf "http://xmlns.com/foaf/0.1/" >
     <!ENTITY ns2 "http://creativecommons.org/ns#" >
     <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
     <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
     <!ENTITY ontology "http://www.geonames.org/ontology#" >
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
@@ -27,9 +29,11 @@
      xmlns:ontology="http://www.geonames.org/ontology#"
      xmlns:ns2="http://creativecommons.org/ns#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
      xmlns:cvlates="http://sbc.ime.usp.br/ontologias/cvlates.owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
     <owl:Ontology rdf:about="http://sbc.ime.usp.br/ontologias/cvlates-inferred.owl">
         <terms:modified rdf:datatype="&xsd;date">2012-02-14</terms:modified>
@@ -2939,6 +2943,14 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:isDefinedBy rdf:resource="http://data.lirmm.fr/ontologies/geo-fr#Region"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sbc.ime.usp.br/ontologias/cvlates-inferred.owl#Teste_SWRL -->
+
+    <owl:Class rdf:about="http://sbc.ime.usp.br/ontologias/cvlates-inferred.owl#Teste_SWRL">
+        <rdfs:subClassOf rdf:resource="&renata;Agent"/>
     </owl:Class>
     
 
@@ -16264,6 +16276,49 @@
         <rdfs:comment>The given name of some person.</rdfs:comment>
         <ns:term_status>testing</ns:term_status>
         <rdfs:isDefinedBy rdf:resource="http://xmlns.com/foaf/0.1/"/>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Rules
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="urn:swrl#subject">
+        <rdf:type rdf:resource="&swrl;Variable"/>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&swrl;Imp"/>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://sbc.ime.usp.br/ontologias/cvlates-inferred.owl#Teste_SWRL"/>
+                        <swrl:argument1 rdf:resource="urn:swrl#subject"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:head>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="&foaf;Person"/>
+                        <swrl:argument1 rdf:resource="urn:swrl#subject"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:body>
     </rdf:Description>
 </rdf:RDF>
 
